@@ -1,0 +1,103 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+class complex
+{
+    int r;
+    float i;
+public:
+
+    complex()
+    {
+        r=0;
+        i=0.0;
+
+    }
+    complex(int temp1,float temp2)
+    {
+        r=temp1;
+        i=temp2;
+
+    }
+    friend void operator<<(ostream& o,complex& a)
+    {
+        o<<a.r<<"+"<<a.i<<"i";
+
+    }
+    friend istream &operator>>(istream& in,complex& b)
+    {
+        cout<<"Enter the complex no";
+        in>>b.r>>b.r;
+        return in;
+
+    }
+    complex operator +(complex& A)
+    {
+        complex B;
+        B.r=r+A.r;
+        B.i=i+A.i;
+
+    }
+    complex operator *(complex& C)
+    {
+        complex result;
+        result.r=r-C.r;
+        result.i=i-C.i;
+        result.r=((r)*(C.r))+((i)*(C.i));
+        result.i=((i)*(C.i))-((i)*(C.i));
+        return result;
+    }
+
+};
+int main()
+{
+    complex A,B,C,D(9,6.5);
+    int ch;
+    while(1)
+    {
+
+
+        cout<<"\n.menu";
+        cout<<"\n1.Default Constructor";
+        cout<<"\n2.parameterised constctor";
+        cout<<"\n3.accept number";
+        cout<<"\n4.display number";
+        cout<<"\n5.add two complex number";
+        cout<<"\n6.multiply two complex number";
+        cout<<"\n Enter your choice";
+        cin>>ch;
+        switch(ch)
+        {
+          case 1:
+              cout<<A;
+              break;
+          case 2:
+              cout<<B;
+              break;
+          case 3:
+              cin>>A;
+              cin>>B;
+              break;
+          case 4:
+              cout<<A;
+              cout<<B;
+              break;
+          case 5:
+              C=A+B;
+              cout<<C;
+              break;
+          case 6:
+              C=A*B;
+              cout<<C;
+              break;
+          case 7:
+              exit(0);
+
+
+
+        }
+
+
+
+    }
+}
